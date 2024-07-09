@@ -9,7 +9,7 @@ const movies = [
         category: "13+",
         content: "Miniserie",
         tags: ["Profondo", "Emozionante", "Dramma"],
-        genre: "Drama"
+        genre: ["Drama"]
     },
     {
         title: "After Life",
@@ -71,6 +71,150 @@ const movies = [
         tags: ["Cupo", "Suspense"],
         genre: ["Drama", "Thriller"]
     },
+    {
+        title: "L'altra Grace",
+        img: `<img src="assets/imgs/movies/7.png" alt="altra grace">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/A-fofQ9VpPQ?autoplay=1&mute=1&loop=1" 
+                        title="Alias Grace | Official Trailer [HD] | Netflix" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "16+",
+        content: "Miniserie",
+        tags: ["Intellettuale", "Psicologico", "Profondo"],
+        genre: ["Drama"]
+    },
+    {
+        title: "Virgin River",
+        img: `<img src="assets/imgs/movies/8.png" alt="virgin river">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/DMNjH5MlQXc?autoplay=1&mute=1&loop=1" 
+                        title="Virgin River | Official Trailer | Netflix" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "5 stagioni",
+        tags: ["Dolceamaro", "Profondo"],
+        genre: ["Drama", "Romantic"]
+    },
+    {
+        title: "The English Game",
+        img: `<img src="assets/imgs/movies/9.png" alt="the english game">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/wX5SNH_GZ54?autoplay=1&mute=1&loop=1" 
+                        title="The English Game | Trailer ufficiale | Netflix Italia" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "Miniserie",
+        tags: ["Storici", "Scontri generazionali", "Età vittoriana"],
+        genre: ["Drama"]
+    },
+    {
+        title: "Il Metodo Kominsky",
+        img: `<img src="assets/imgs/movies/10.png" alt="metodo kominsky">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Aj8ua1zQPSs?autoplay=1&mute=1&loop=1" 
+                        title="The Kominsky Method Season 3 | Official Trailer | Netflix" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "3 stagioni",
+        tags: ["Ammiccante", "Arguto", "Sitcom"],
+        genre: ["Drama", "Comedy", "Sitcom"]
+    },
+    {
+        title: "Patto d'amore",
+        img: `<img src="assets/imgs/movies/11.png" alt="patto damore">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/-E0jfSGWqUE?autoplay=1&mute=1&loop=1" 
+                        title="Permission Official Trailer" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "96 min",
+        tags: [],
+        genre: ["Comedy", "Romantic"]
+    },
+    {
+        title: "La Casa de las Flores",
+        img: `<img src="assets/imgs/movies/12.png" alt="la casa de las flores">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/5iXOQUASjLQ?autoplay=1&mute=1&loop=1" 
+                        title="La Casa de las Flores, La película | Tráiler Oficial | Netflix" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "3 stagioni",
+        tags: ["Camp", "Sensuale"],
+        genre: ["Comedy", "Drama"]
+    },
+    {
+        title: "Collateral Beauty",
+        img: `<img src="assets/imgs/movies/13.png" alt="collateral beauty">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/VoOxLh-AGkE?autoplay=1&mute=1&loop=1" 
+                        title="Collateral Beauty - Trailer Italiano Ufficiale | HD" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "1h 36min",
+        tags: ["Sentimentale", "Emozionante", "Dramma"],
+        genre: ["Drama"]
+    },
+    {
+        title: "Self-Made: La Vita di Madam C.J. Walker",
+        img: `<img src="assets/imgs/movies/14.png" alt="self made">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/bnHy--yxPK4?autoplay=1&mute=1&loop=1" 
+                        title="Self-made: la vita di Madam C.J. Walker | Trailer ufficiale | Netflix Italia" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "Miniserie",
+        tags: ["Motivante", "Commovente", "Dramma"],
+        genre: ["Drama"]
+    },
+    {
+        title: "Freud",
+        img: `<img src="assets/imgs/movies/15.png" alt="freud">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/vz9h-Bv36VU?autoplay=1&mute=1&loop=1" 
+                        title="Freud | Trailer ufficiale | Netflix Italia" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "16+",
+        content: "8 episodi",
+        tags: ["Psicologico", "Cupo", "Misteri"],
+        genre: ["Drama", "Mistery"]
+    },
+    {
+        title: "Grace and Frankie",
+        img: `<img src="assets/imgs/movies/16.png" alt="grace and frankie">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/8q3dTU182EI?autoplay=1&mute=1&loop=1" 
+                        title="Grace and Frankie - Stagione 1 | Trailer | Netflix Italia" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "7 stagioni",
+        tags: ["Arguto", "Bizzarro", "Sitcom"],
+        genre: ["Drama", "Sitcom", "Comedy"]
+    },
+    {
+        title: "Lasciati Andare",
+        img: `<img src="assets/imgs/movies/17.png" alt="lasciati andare">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7G1iJBUnf0?autoplay=1&mute=1&loop=1" 
+                        title="LASCIATI ANDARE (2017) di Francesco Amato - Trailer ufficiale HD" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "99 min",
+        tags: [],
+        genre: ["Drama", "Thriller", "Comedy"]
+    },
+    {
+        title: "Dogman",
+        img: `<img src="assets/imgs/movies/18.png" alt="dogman">`,
+        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/eum93mpzpE0?autoplay=1&mute=1&loop=1" 
+                        title="DOGMAN (2018) di Matteo Garrone - Trailer ufficiale HD" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        category: "13+",
+        content: "102 min",
+        tags: [],
+        genre: ["Drama"]
+    }
 ];
 
 const footerLinks = [
@@ -90,11 +234,18 @@ const footerLinks = [
 ]
 
 
+// Global Variables
+let genresArray = ["All"];
+
+
 // DOM Elements
+const pageTitle = document.getElementById("page-title");
+const genresList = document.getElementById("genres-dropdown");
 const showCategoriesBtn = document.getElementById("show-sections");
 const showGridBtn = document.getElementById("show-grid");
-const showsCointaner = document.getElementById("shows-container");
+const showsContainer = document.getElementById("shows-container");
 const footerLinksContainer = document.getElementById("footer-links-container");
+
 
 // Functions
 const createLink = (link, container) => {
@@ -108,6 +259,36 @@ const createLink = (link, container) => {
 
     linkLi.appendChild(linkAnchor);
     container.appendChild(linkLi);
+}
+
+const createGenreButton = (genre, container) => {
+    const genreLi = document.createElement("li");
+
+    const genreButton = document.createElement("div");
+    genreButton.setAttribute("class", "dropdown-item text-secondary");
+    genreButton.innerText = genre;
+
+    genreLi.appendChild(genreButton);
+    container.appendChild(genreLi);
+
+    genreButton.addEventListener("click", () => sortMovies(genre))
+}
+
+const sortMovies = (genre) => {
+    showsContainer.innerHTML = "";
+    if (genre === "All") {
+        movies.forEach(movie => {
+            createCard(movie, showsContainer);
+        })
+        pageTitle.innerText = `TV Shows`;
+    } else {
+        movies.forEach(movie => {
+            if (movie.genre.includes(genre)) {
+                createCard(movie, showsContainer)
+            }
+        })
+        pageTitle.innerText = `TV Shows > ${genre}`;
+    }
 }
 
 const createCard = (show, container) => {
@@ -136,7 +317,7 @@ const createCard = (show, container) => {
     showWrapper.addEventListener("mouseenter", () => {
         timerID = setTimeout(() => {
             cardImg.innerHTML = show.embedVideo;
-        })
+        }, 700)
     })
     showWrapper.addEventListener("mouseleave", () => {
         clearTimeout(timerID);
@@ -180,7 +361,19 @@ const createCardBody = (show, container) => {
 
 // Calls
 movies.forEach(movie => {
-    createCard(movie, showsCointaner);
+    movie.genre.forEach(genre => {
+        if (!genresArray.includes(genre)) {
+            genresArray.push(genre)
+        }
+    })
+})
+
+genresArray.sort().forEach(genre => {
+    createGenreButton(genre, genresList);
+})
+
+movies.forEach(movie => {
+    createCard(movie, showsContainer);
 })
 
 footerLinks.forEach(link => createLink(link, footerLinksContainer));
