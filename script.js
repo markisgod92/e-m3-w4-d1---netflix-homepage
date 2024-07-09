@@ -42,3 +42,40 @@ const movies = [
         genre: ["Cupo", "Suspense"]
     },
 ];
+
+const footerLinks = [
+    {title: "Audio and Subtitles", link: "#"},
+    {title: "Audio Description", link: "#"},
+    {title: "Help Center", link: "#"},
+    {title: "Gift Cards", link: "#"},
+    {title: "Media Center", link: "#"},
+    {title: "Investor Relations", link: "#"},
+    {title: "Jobs", link: "#"},
+    {title: "Terms of Use", link: "#"},
+    {title: "Privacy", link: "#"},
+    {title: "Legal Notices", link: "#"},
+    {title: "Cookie Preferences", link: "#"},
+    {title: "Corporate Information", link: "#"},
+    {title: "Contact Us", link: "#"}
+]
+
+
+// DOM Elements
+const footerLinksContainer = document.getElementById("footer-links-container");
+
+// Functions
+const createLink = (link, container) => {
+    const linkLi = document.createElement("li");
+    linkLi.setAttribute("class", "col-6 col-md-4 mb-2");
+
+    const linkAnchor = document.createElement("a");
+    linkAnchor.innerText = link.title;
+    linkAnchor.href = link.link;
+    linkAnchor.setAttribute("class", "text-secondary text-decoration-none");
+
+    linkLi.appendChild(linkAnchor);
+    container.appendChild(linkLi);
+}
+
+// Calls
+footerLinks.forEach(link => createLink(link, footerLinksContainer));

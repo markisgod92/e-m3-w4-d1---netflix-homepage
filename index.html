@@ -47,7 +47,7 @@
                             <a class="nav-link" aria-current="page" href="#">My List</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3 flex-row justify-content-end">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">
                                 <i class="bi bi-search"></i>
@@ -67,9 +67,9 @@
                                     aria-expanded="false">
                                     <img src="https://picsum.photos/200" alt="user avatar" width="40">
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
+                                <ul class="dropdown-menu dropdown-menu-end pt-4 pb-2">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item mb-2" href="#">
                                             <div class="d-flex justify-content-start align-items-center gap-2">
                                                 <i class="bi bi-pencil"></i>
                                                 <div>Manage profiles</div>
@@ -77,7 +77,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item mb-2" href="#">
                                             <div class="d-flex justify-content-start align-items-center gap-2">
                                                 <i class="bi bi-person-up"></i>
                                                 <div>Transfer profile</div>
@@ -85,7 +85,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item mb-2" href="#">
                                             <div class="d-flex justify-content-start align-items-center gap-2">
                                                 <i class="bi bi-person"></i>
                                                 <div>Account</div>
@@ -93,7 +93,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item mb-2" href="#">
                                             <div class="d-flex justify-content-start align-items-center gap-2">
                                                 <i class="bi bi-question-circle"></i>
                                                 <div>Assistance</div>
@@ -101,7 +101,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <hr class="dropdown-divider">
+                                        <hr class="dropdown-divider my-3">
                                     </li>
                                     <li class="text-center">
                                         <a class="dropdown-item" href="#">Quit Netflix</a>
@@ -120,6 +120,49 @@
             
         </div>
     </main>
+
+    <footer class="bg-dark">
+        <div class="container">
+            <!--SOCIAL LINKS-->
+            <div class="row mb-3">
+                <div class="col">
+                    <ul class="list-unstyled d-flex align-items-center gap-5">
+                        <li>
+                            <a href="#" class="text-secondary fs-1">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary fs-1">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary fs-1">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-secondary fs-1">
+                                <i class="bi bi-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--LINKS LIST-->
+            <ul class="row mb-3 list-unstyled" id="footer-links-container"></ul>
+            <!--END OF PAGE-->
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <button class="btn btn-outline-secondary rounded-0">Service Code</button>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="text-secondary">© MG </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
