@@ -61,6 +61,8 @@ const footerLinks = [
 
 
 // DOM Elements
+const showCategoriesBtn = document.getElementById("show-sections");
+const showGridBtn = document.getElementById("show-grid");
 const footerLinksContainer = document.getElementById("footer-links-container");
 
 // Functions
@@ -79,3 +81,25 @@ const createLink = (link, container) => {
 
 // Calls
 footerLinks.forEach(link => createLink(link, footerLinksContainer));
+
+
+// TEST CARD
+let timerID;
+const showCard = document.querySelector(".card");
+const showImg = document.querySelector(".card-img-top");
+const showBody = document.querySelector(".card-body");
+
+showCard.addEventListener("mouseover", () => {
+    timerID = setTimeout(() => {
+        showImg.innerHTML = `<iframe class="card-img-top" width="100%" height="100%" src="http://www.youtube.com/embed/SaqWJ-lQDtE?autoplay=1&mute=1&loop=1" 
+                                title="Unorthodox  - Trailer Ufficiale" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin"></iframe>`
+    }, 1000)
+    
+})
+
+showCard.addEventListener("mouseout", () => {
+    clearTimeout(timerID);
+    showImg.innerHTML = `<img src="assets/imgs/movies/1.png" alt="show pic">`
+})

@@ -1,3 +1,5 @@
+nav {box-shadow: 10px 0 10px black;}
+
 .navbar i {
     color: white;
     font-size: 1.4em;
@@ -5,3 +7,42 @@
 }
 
 .dropdown-menu {width: 300px;}
+
+.show {
+    width: 301px;
+    height: 164px;
+}
+
+.card {width: max-content;}
+
+.show:hover .card {
+    z-index: 1;
+    box-shadow: 5px 5px 20px black;
+    padding: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-img-top {
+    width: 301px;
+    height: 164px;
+}
+
+.card-img-top > img {
+    width: 100%;
+}
+
+.show:hover .card-img-top {
+    width: 364px;
+    height: 196px;
+}
+
+.card-body {display: none;}
+
+.show:hover .card-body {display: block;}
+
+.show li:not(li:first-of-type) {list-style: disc;}
+
