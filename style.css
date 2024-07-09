@@ -6,7 +6,9 @@ nav {box-shadow: 10px 0 10px black;}
     line-height: 100%;
 }
 
-/* .dropdown-menu {width: max-content; height: max-content;} */
+main {
+    min-height: calc(100vh - 68px - 411px)
+}
 
 .show-card {
     width: 301px;
@@ -18,7 +20,6 @@ nav {box-shadow: 10px 0 10px black;}
 .show-card:hover .card {
     z-index: 1;
     box-shadow: 5px 5px 20px black;
-    padding: 10px;
     border-radius: 20px;
     position: absolute;
     top: 50%;
@@ -29,6 +30,7 @@ nav {box-shadow: 10px 0 10px black;}
 .card-img-top {
     width: 301px;
     height: 164px;
+    transition: all .2s ease-in-out;
 }
 
 .card-img-top > img {
@@ -36,8 +38,8 @@ nav {box-shadow: 10px 0 10px black;}
 }
 
 .show-card:hover .card-img-top {
-    width: 364px;
-    height: 196px;
+    width: 421px;
+    height: 230px;
 }
 
 .card-body {display: none;}
@@ -45,4 +47,3 @@ nav {box-shadow: 10px 0 10px black;}
 .show-card:hover .card-body {display: block;}
 
 .show-card li:not(li:first-of-type) {list-style: disc;}
-
