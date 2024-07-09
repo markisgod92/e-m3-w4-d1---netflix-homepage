@@ -6,16 +6,16 @@ nav {box-shadow: 10px 0 10px black;}
     line-height: 100%;
 }
 
-.dropdown-menu {width: 300px;}
+/* .dropdown-menu {width: max-content; height: max-content;} */
 
-.show {
+.show-card {
     width: 301px;
     height: 164px;
 }
 
 .card {width: max-content;}
 
-.show:hover .card {
+.show-card:hover .card {
     z-index: 1;
     box-shadow: 5px 5px 20px black;
     padding: 10px;
@@ -35,14 +35,14 @@ nav {box-shadow: 10px 0 10px black;}
     width: 100%;
 }
 
-.show:hover .card-img-top {
+.show-card:hover .card-img-top {
     width: 364px;
     height: 196px;
 }
 
 .card-body {display: none;}
 
-.show:hover .card-body {display: block;}
+.show-card:hover .card-body {display: block;}
 
-.show li:not(li:first-of-type) {list-style: disc;}
+.show-card li:not(li:first-of-type) {list-style: disc;}
 
