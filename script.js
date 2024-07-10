@@ -243,11 +243,38 @@ const pageTitle = document.getElementById("page-title");
 const genresList = document.getElementById("genres-dropdown");
 const showCategoriesBtn = document.getElementById("show-sections");
 const showGridBtn = document.getElementById("show-grid");
-const showsContainer = document.getElementById("shows-container");
+const showSectionsCointainer = document.getElementById("show-sections-container");
+const trendingNowContainer = document.getElementById("trending-now");
+const watchAgainContainer = document.getElementById("watch-again");
+const newReleasesContainer = document.getElementById("new-releases");
+const showGridContainer = document.getElementById("show-grid-container");
 const footerLinksContainer = document.getElementById("footer-links-container");
 
 
+//Swiper
+const swiper = new Swiper(`.swiper`, {
+    direction: `horizontal`,
+    loop: false,
+    autoHeight: true,
+    slidesPerView: "auto",
+    spaceBetween: 10,
+
+    navigation: {
+        nextEl: `.swiper-button-next`,
+        prevEl: `.swiper-button-prev`
+    }
+})
+
+
 // Functions
+const shuffleArray = (array) => {
+    for (let i = array.length -1; i > 0; i--) {
+        const y = Math.floor(Math.random() * (i + 1));
+        [array[i], array[y]] = [array[y], array[i]];
+    };
+    return array;
+}
+
 const createLink = (link, container) => {
     const linkLi = document.createElement("li");
     linkLi.setAttribute("class", "col-6 col-md-4 mb-2");
@@ -261,7 +288,7 @@ const createLink = (link, container) => {
     container.appendChild(linkLi);
 }
 
-const createGenreButton = (genre, container) => {
+const createGenreButton = (genre, dropdownContainer) => {
     const genreLi = document.createElement("li");
 
     const genreButton = document.createElement("div");
@@ -269,22 +296,28 @@ const createGenreButton = (genre, container) => {
     genreButton.innerText = genre;
 
     genreLi.appendChild(genreButton);
-    container.appendChild(genreLi);
+    dropdownContainer.appendChild(genreLi);
 
     genreButton.addEventListener("click", () => sortMovies(genre))
 }
 
 const sortMovies = (genre) => {
-    showsContainer.innerHTML = "";
+    showCategoriesBtn.classList.remove("active");
+    showGridBtn.classList.add("active");
+
+    showSectionsCointainer.classList.add("d-none");
+    showGridContainer.classList.remove("d-none");
+
+    showGridContainer.innerHTML = "";
     if (genre === "All") {
         movies.forEach(movie => {
-            createCard(movie, showsContainer);
+            createCard(movie, showGridContainer);
         })
         pageTitle.innerText = `TV Shows`;
     } else {
         movies.forEach(movie => {
             if (movie.genre.includes(genre)) {
-                createCard(movie, showsContainer)
+                createCard(movie, showGridContainer)
             }
         })
         pageTitle.innerText = `TV Shows > ${genre}`;
@@ -358,8 +391,18 @@ const createCardBody = (show, container) => {
     container.append(cardButtons, cardData, cardTags)
 }
 
+const createSwiperSlide = (array, container) => {
+    let shuffledArray = shuffleArray(array)
+    shuffledArray.forEach(element => {
+        const showSwiperSlide = document.createElement("div");
+        showSwiperSlide.setAttribute("class", "swiper-slide");
+        createCard(element, showSwiperSlide);
+        container.appendChild(showSwiperSlide);
+    })
+}
 
-// Calls
+
+// Compile genres list
 movies.forEach(movie => {
     movie.genre.forEach(genre => {
         if (!genresArray.includes(genre)) {
@@ -368,12 +411,44 @@ movies.forEach(movie => {
     })
 })
 
-genresArray.sort().forEach(genre => {
-    createGenreButton(genre, genresList);
+genresArray.sort().forEach(genre => createGenreButton(genre, genresList))
+
+
+// Create cards
+createSwiperSlide(movies, trendingNowContainer);
+createSwiperSlide(movies, watchAgainContainer);
+createSwiperSlide(movies, newReleasesContainer);
+
+showCategoriesBtn.addEventListener("click", () => {
+    pageTitle.innerText = "TV Shows";
+
+    showCategoriesBtn.classList.add("active");
+    showGridBtn.classList.remove("active");
+
+    showSectionsCointainer.classList.remove("d-none");
+    showGridContainer.classList.add("d-none");
+
+    trendingNowContainer.innerHTML = "";
+    watchAgainContainer.innerHTML = "";
+    newReleasesContainer.innerHTML = "";
+
+    createSwiperSlide(movies, trendingNowContainer);
+    createSwiperSlide(movies, watchAgainContainer);
+    createSwiperSlide(movies, newReleasesContainer);
 })
 
-movies.forEach(movie => {
-    createCard(movie, showsContainer);
+showGridBtn.addEventListener("click", () => {
+    pageTitle.innerText = "TV Shows";
+    
+    showCategoriesBtn.classList.remove("active");
+    showGridBtn.classList.add("active");
+
+    showSectionsCointainer.classList.add("d-none");
+    showGridContainer.classList.remove("d-none");
+
+    showGridContainer.innerHTML = "";
+    movies.forEach(movie => createCard(movie, showGridContainer));
 })
+
 
 footerLinks.forEach(link => createLink(link, footerLinksContainer));
