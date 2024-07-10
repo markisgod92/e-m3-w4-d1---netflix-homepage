@@ -21,17 +21,15 @@ main {
     overflow: visible;
 }
 
-.swiper-slide {width: max-content}
-
-.show-card {
+.swiper-slide, .show-card {
     width: 301px;
-    height: 100%;
+    height: 166px;
 }
 
 .card {width: max-content;}
 
 .show-card:hover .card {
-    z-index: 1;
+    z-index: 2;
     box-shadow: 5px 5px 20px black;
     border-radius: 20px;
     position: absolute;

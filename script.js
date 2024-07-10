@@ -239,6 +239,7 @@ let genresArray = ["All"];
 
 
 // DOM Elements
+const searchBarInput = document.getElementById("searchInput");
 const pageTitle = document.getElementById("page-title");
 const genresList = document.getElementById("genres-dropdown");
 const showCategoriesBtn = document.getElementById("show-sections");
@@ -309,6 +310,7 @@ const sortMovies = (genre) => {
     showGridContainer.classList.remove("d-none");
 
     showGridContainer.innerHTML = "";
+
     if (genre === "All") {
         movies.forEach(movie => {
             createCard(movie, showGridContainer);
@@ -322,6 +324,14 @@ const sortMovies = (genre) => {
         })
         pageTitle.innerText = `TV Shows > ${genre}`;
     }
+}
+
+const searchMovies = (query) => {
+    query = query.toLowerCase();
+
+    return movies.filter(movie => {
+        return Object.values(movie).some(value => value.toString().toLowerCase().includes(query))
+    })
 }
 
 const createCard = (show, container) => {
@@ -364,7 +374,7 @@ const createCardBody = (show, container) => {
     cardButtons.setAttribute("class", "mb-3 d-flex align-items-center gap-2");
     cardButtons.innerHTML = `<i class="bi bi-play-circle-fill text-white fs-1"></i>
                                 <i class="bi bi-plus-circle text-white fs-1"></i>
-                                <i class="bi bi-hand-thumbs-up text-white fs-1"></i>`;
+                                <i class="bi bi-hand-thumbs-up text-white fs-1"></i>`;                  
 
     const cardData = document.createElement("div");
     cardData.setAttribute("class", "mb-3 d-flex align-items-center gap-3");
@@ -418,6 +428,23 @@ genresArray.sort().forEach(genre => createGenreButton(genre, genresList))
 createSwiperSlide(movies, trendingNowContainer);
 createSwiperSlide(movies, watchAgainContainer);
 createSwiperSlide(movies, newReleasesContainer);
+
+searchBarInput.addEventListener("input", () => {
+    const query = searchBarInput.value;
+    const results = searchMovies(query);
+
+    pageTitle.innerText = `Search > ${query}`;
+    
+    showCategoriesBtn.classList.remove("active");
+    showGridBtn.classList.add("active");
+
+    showSectionsCointainer.classList.add("d-none");
+    showGridContainer.classList.remove("d-none");
+
+    showGridContainer.innerHTML = "";
+
+    results.forEach(movie => createCard(movie, showGridContainer))
+})
 
 showCategoriesBtn.addEventListener("click", () => {
     pageTitle.innerText = "TV Shows";
