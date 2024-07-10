@@ -336,7 +336,7 @@ const searchMovies = (query) => {
 
 const createCard = (show, container) => {
     const showWrapper = document.createElement("div");
-    showWrapper.setAttribute("class", "show-card position-relative");
+    showWrapper.setAttribute("class", "show-card");
 
     const showCard = document.createElement("div");
     showCard.setAttribute("class", "card bg-black");

@@ -26,13 +26,19 @@ main {
     height: 166px;
 }
 
-.card {width: max-content;}
+.show-card {
+    position: relative;
+}
+
+.card {
+    width: max-content;
+    position: absolute;
+}
 
 .show-card:hover .card {
-    z-index: 2;
+    z-index: 999;
     box-shadow: 5px 5px 20px black;
     border-radius: 20px;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

@@ -130,23 +130,27 @@
     <main class="container-fluid">
         <div class="row mx-5">
             <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center my-5">
-                    <div class="d-flex align-items-center gap-5">
+                <div class="row my-5">
+                    <div class="col-12 col-md-6">
                         <h2 class="text-white" id="page-title">TV Shows</h2>
-                        <div class="dropdown">
-                            <button class="btn btn-outline-secondary rounded-0 text-white fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Genres
-                            </button>
-                            <ul class="dropdown-menu bg-dark" id="genres-dropdown"></ul>
-                          </div>
                     </div>
-                    <div class="d-flex justify-content-end align-items-center">
-                        <button class="btn btn-outline-secondary rounded-0 active" id="show-sections">
-                            <i class="bi bi-text-left"></i>
-                        </button>
-                        <button class="btn btn-outline-secondary rounded-0" id="show-grid">
-                            <i class="bi bi-grid-fill"></i>
-                        </button>
+                    <div class="col-12 col-md-6 mt-3 mt-md-0">
+                        <div class="d-flex justify-content-between justify-content-md-end align-items-center gap-5">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary rounded-0 text-white fw-bold dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Genres
+                                </button>
+                                <ul class="dropdown-menu bg-dark" id="genres-dropdown"></ul>
+                            </div>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <button class="btn btn-outline-secondary rounded-0 active" id="show-sections">
+                                    <i class="bi bi-text-left"></i>
+                                </button>
+                                <button class="btn btn-outline-secondary rounded-0" id="show-grid">
+                                    <i class="bi bi-grid-fill"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row" id="show-sections-container">
@@ -241,5 +245,4 @@
     <!--JS-->
     <script src="script.js"></script>
 </body>
-
 </html>
