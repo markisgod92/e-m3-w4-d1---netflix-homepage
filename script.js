@@ -371,11 +371,11 @@ const createCard = (show, container) => {
 
 const createCardBody = (show, container) => {
     const cardButtons = document.createElement("div");
-    cardButtons.setAttribute("class", "mb-3 d-flex align-items-center gap-2");
+    cardButtons.setAttribute("class", "mb-3 d-flex align-items-center gap-3");
     cardButtons.innerHTML = `<i class="bi bi-play-circle-fill text-white fs-1"></i>
                                 <i class="bi bi-plus-circle text-white fs-1"></i>
                                 <i class="bi bi-hand-thumbs-up text-white fs-1"></i>`;                  
-
+    
     const cardData = document.createElement("div");
     cardData.setAttribute("class", "mb-3 d-flex align-items-center gap-3");
 
@@ -390,7 +390,7 @@ const createCardBody = (show, container) => {
     cardData.append(showCategory, showContent);
 
     const cardTags = document.createElement("ul");
-    cardTags.setAttribute("class", "d-flex justify-content-start align-items-center gap-5 text-white list-unstyled");
+    cardTags.setAttribute("class", "d-flex justify-content-start align-items-center text-white list-unstyled");
 
     show.tags.forEach(tag => {
         const cardLi = document.createElement("li");
