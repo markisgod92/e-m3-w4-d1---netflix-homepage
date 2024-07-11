@@ -1,3 +1,4 @@
+// Global Variables
 const movies = [
     {
         title: "Unorthodox",
@@ -233,8 +234,26 @@ const footerLinks = [
     { title: "Contact Us", link: "#" }
 ]
 
+const sections = [
+    "Trending Now",
+    "Watch It Again",
+    "New Releases",
+    "Critically Acclaimed",
+    "Underrated Series",
+    "Shows You Pretend to Watch",
+    "Background Noise",
+    "For When You Can't Decide",
+    "Because You’ve Watched Everything Else",
+    "For When You’re Out of Options",
+    "Desperation Station",
+    "The Bottom of the Barrel",
+    "So Bad, It’s Good",
+    "Regrettable Choices",
+    "Last Resort",
+    "Why Are You Even Watching This?",
+    "Absolutely No One’s Favorite"
+];
 
-// Global Variables
 let genresArray = ["All"];
 
 
@@ -245,29 +264,46 @@ const genresList = document.getElementById("genres-dropdown");
 const showCategoriesBtn = document.getElementById("show-sections");
 const showGridBtn = document.getElementById("show-grid");
 const showSectionsCointainer = document.getElementById("show-sections-container");
-const trendingNowContainer = document.getElementById("trending-now");
-const watchAgainContainer = document.getElementById("watch-again");
-const newReleasesContainer = document.getElementById("new-releases");
 const showGridContainer = document.getElementById("show-grid-container");
 const footerLinksContainer = document.getElementById("footer-links-container");
 
 
-//Swiper
-const swiper = new Swiper(`.swiper`, {
-    direction: `horizontal`,
-    loop: false,
-    autoHeight: true,
-    slidesPerView: "auto",
-    spaceBetween: 10,
-
-    navigation: {
-        nextEl: `.swiper-button-next`,
-        prevEl: `.swiper-button-prev`
-    }
-})
-
-
 // Functions
+const createSectionTitle = (section, container) => {
+    const titleDiv = document.createElement("div");
+    titleDiv.setAttribute("class", "col-12 mt-5 mb-3 scrollable");
+
+    const title = document.createElement("h4");
+    title.setAttribute("class", "text-white");
+    title.innerText = section;
+
+    titleDiv.appendChild(title);
+    container.appendChild(titleDiv);
+}
+
+const createSectionSwiper = (section, container) => {
+    const sectionCol = document.createElement("div");
+    sectionCol.setAttribute("class", "col-12 mb-3 scrollable");
+
+    const swiperDiv = document.createElement("div");
+    swiperDiv.setAttribute("class", "swiper");
+
+    const swiperWrapper = document.createElement("div");
+    swiperWrapper.setAttribute("class", "swiper-wrapper");
+
+    const swipperBtnPrev = document.createElement("div");
+    swipperBtnPrev.setAttribute("class", "swiper-button-prev");
+
+    const swipperBtnNext = document.createElement("div");
+    swipperBtnNext.setAttribute("class", "swiper-button-next");
+
+    swiperDiv.append(swiperWrapper, swipperBtnPrev, swipperBtnNext);
+    sectionCol.appendChild(swiperDiv);
+    container.appendChild(sectionCol);
+
+    createSwiperSlide(movies, swiperWrapper);
+}
+
 const shuffleArray = (array) => {
     for (let i = array.length -1; i > 0; i--) {
         const y = Math.floor(Math.random() * (i + 1));
@@ -328,9 +364,12 @@ const sortMovies = (genre) => {
 
 const searchMovies = (query) => {
     query = query.toLowerCase();
+    const propertiesToLook = ["title", "tags", "genre"];
 
     return movies.filter(movie => {
-        return Object.values(movie).some(value => value.toString().toLowerCase().includes(query))
+        return propertiesToLook.some(property => {
+            return movie[property] && movie[property].toString().toLowerCase().includes(query)
+        })
     })
 }
 
@@ -411,6 +450,20 @@ const createSwiperSlide = (array, container) => {
     })
 }
 
+const swiperInit = () => {
+    const swiper = new Swiper(`.swiper`, {
+        direction: `horizontal`,
+        loop: false,
+        autoHeight: true,
+        slidesPerView: "auto",
+        spaceBetween: 10,
+        navigation: {
+            nextEl: `.swiper-button-next`,
+            prevEl: `.swiper-button-prev`
+        }
+    })
+}
+
 
 // Compile genres list
 movies.forEach(movie => {
@@ -425,9 +478,10 @@ genresArray.sort().forEach(genre => createGenreButton(genre, genresList))
 
 
 // Create cards
-createSwiperSlide(movies, trendingNowContainer);
-createSwiperSlide(movies, watchAgainContainer);
-createSwiperSlide(movies, newReleasesContainer);
+sections.forEach(section => {
+    createSectionTitle(section, showSectionsCointainer);
+    createSectionSwiper(section, showSectionsCointainer);
+})
 
 searchBarInput.addEventListener("input", () => {
     const query = searchBarInput.value;
@@ -455,13 +509,19 @@ showCategoriesBtn.addEventListener("click", () => {
     showSectionsCointainer.classList.remove("d-none");
     showGridContainer.classList.add("d-none");
 
-    trendingNowContainer.innerHTML = "";
-    watchAgainContainer.innerHTML = "";
-    newReleasesContainer.innerHTML = "";
+    showSectionsCointainer.innerHTML = "";
 
-    createSwiperSlide(movies, trendingNowContainer);
-    createSwiperSlide(movies, watchAgainContainer);
-    createSwiperSlide(movies, newReleasesContainer);
+    sections.forEach(section => {
+        createSectionTitle(section, showSectionsCointainer);
+        createSectionSwiper(section, showSectionsCointainer);
+    })
+
+    swiperInit();
+
+    const elementToTrack = document.querySelectorAll(".scrollable");
+    elementToTrack.forEach(element => {
+        observer.observe(element);
+    })
 })
 
 showGridBtn.addEventListener("click", () => {
@@ -477,5 +537,30 @@ showGridBtn.addEventListener("click", () => {
     movies.forEach(movie => createCard(movie, showGridContainer));
 })
 
-
 footerLinks.forEach(link => createLink(link, footerLinksContainer));
+
+swiperInit()
+
+
+// INTERSECTION OBSERVER
+const elementToTrack = document.querySelectorAll(".scrollable");
+
+const options = {
+    rootMargin: `0px`,
+    threshold: 0.5
+}
+
+const callBack = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible")
+            observer.unobserve(entry.target)
+        }
+    })
+}
+
+const observer = new IntersectionObserver(callBack, options)
+
+elementToTrack.forEach(element => {
+    observer.observe(element);
+})
