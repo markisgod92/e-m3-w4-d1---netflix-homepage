@@ -1,12 +1,21 @@
+/*
+INDEX:
+12- Global Variables
+235- DOM Elements
+248- Functions
+472- Compile genre list
+484- Calls
+564- Intersection observer
+*/
+
+
 // Global Variables
 const movies = [
     {
         title: "Unorthodox",
-        img: `<img src="assets/imgs/movies/1.png" alt="unorthox">`,
-        embedVideo: `<iframe width="100%" height="100%" src="http://www.youtube.com/embed/SaqWJ-lQDtE?autoplay=1&mute=1&loop=1" 
-                        title="Unorthodox  - Trailer Ufficiale" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin"></iframe>`,
+        img: "assets/imgs/movies/1.png",
+        embedVideo: "http://www.youtube.com/embed/SaqWJ-lQDtE",
+        embedVideoTitle: "Unorthodox - Trailer Ufficiale",
         category: "13+",
         content: "Miniserie",
         tags: ["Profondo", "Emozionante", "Dramma"],
@@ -14,11 +23,9 @@ const movies = [
     },
     {
         title: "After Life",
-        img: `<img src="assets/imgs/movies/2.png" alt="after life">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Qad_RHzz9B8?autoplay=1&mute=1&loop=1" 
-                        title="AFTER LIFE | Trailer ITA Della Serie Netflix con Ricky Gervais" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/2.png",
+        embedVideo: "https://www.youtube.com/embed/Qad_RHzz9B8",
+        embedVideoTitle: "AFTER LIFE | Trailer ITA Della Serie Netflix con Ricky Gervais",
         category: "16+",
         content: "3 stagioni",
         tags: ["Umorismo inglese", "Arguto", "Commedia cupa"],
@@ -26,11 +33,9 @@ const movies = [
     },
     {
         title: "Vis a Vis: il Prezzo del Riscatto",
-        img: `<img src="assets/imgs/movies/3.png" alt="vis a vis">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/eqdaWny5Irs?autoplay=1&mute=1&loop=1" 
-                        title="Vis a Vis: El Oasis | Trailer ufficiale (sottotitoli in ITALIANO) | Netflix Italia" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/3.png",
+        embedVideo: "https://www.youtube.com/embed/eqdaWny5Irs",
+        embedVideoTitle: "Vis a Vis: El Oasis | Trailer ufficiale (sottotitoli in ITALIANO) | Netflix Italia",
         category: "16+",
         content: "5 stagioni",
         tags: ["Thriller", "LGBTQ", "Carcere"],
@@ -38,11 +43,9 @@ const movies = [
     },
     {
         title: "The Place",
-        img: `<img src="assets/imgs/movies/4.png" alt="the place">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/RDQwNVp65HY?autoplay=1&mute=1&loop=1" 
-                        title="The place - Trailer ufficiale" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/4.png",
+        embedVideo: "https://www.youtube.com/embed/RDQwNVp65HY",
+        embedVideoTitle: "The place - Trailer ufficiale",
         category: "13+",
         content: "105 min",
         tags: ["Drammatico", "Noir", "Fantastico"],
@@ -50,11 +53,9 @@ const movies = [
     },
     {
         title: "Summertime",
-        img: `<img src="assets/imgs/movies/5.png" alt="summertime">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/n1yLsV-IPOk?autoplay=1&mute=1&loop=1" 
-                        title="Summertime | Trailer ufficiale | Netflix Italia" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/5.png",
+        embedVideo: "https://www.youtube.com/embed/n1yLsV-IPOk",
+        embedVideoTitle: "Summertime | Trailer ufficiale | Netflix Italia",
         category: "13+",
         content: "3 stagioni",
         tags: ["Stile soap", "Dolceamaro", "Adolescenziale"],
@@ -62,11 +63,9 @@ const movies = [
     },
     {
         title: "I Delitti di Valhalla",
-        img: `<img src="assets/imgs/movies/6.png" alt="i delitti di valhalla">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/pQyy7DJtwEI?autoplay=1&mute=1&loop=1" 
-                        title="Valhalla Murders: Trailer | BBC Trailers" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/6.png",
+        embedVideo: "https://www.youtube.com/embed/pQyy7DJtwEI",
+        embedVideoTitle: "Valhalla Murders: Trailer | BBC Trailers",
         category: "16+",
         content: "Miniserie",
         tags: ["Cupo", "Suspense"],
@@ -74,11 +73,9 @@ const movies = [
     },
     {
         title: "L'altra Grace",
-        img: `<img src="assets/imgs/movies/7.png" alt="altra grace">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/A-fofQ9VpPQ?autoplay=1&mute=1&loop=1" 
-                        title="Alias Grace | Official Trailer [HD] | Netflix" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/7.png",
+        embedVideo: "https://www.youtube.com/embed/A-fofQ9VpPQ",
+        embedVideoTitle: "Alias Grace | Official Trailer [HD] | Netflix",
         category: "16+",
         content: "Miniserie",
         tags: ["Intellettuale", "Psicologico", "Profondo"],
@@ -86,11 +83,9 @@ const movies = [
     },
     {
         title: "Virgin River",
-        img: `<img src="assets/imgs/movies/8.png" alt="virgin river">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/DMNjH5MlQXc?autoplay=1&mute=1&loop=1" 
-                        title="Virgin River | Official Trailer | Netflix" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/8.png",
+        embedVideo: "https://www.youtube.com/embed/DMNjH5MlQXc",
+        embedVideoTitle: "Virgin River | Official Trailer | Netflix",
         category: "13+",
         content: "5 stagioni",
         tags: ["Dolceamaro", "Profondo"],
@@ -98,11 +93,9 @@ const movies = [
     },
     {
         title: "The English Game",
-        img: `<img src="assets/imgs/movies/9.png" alt="the english game">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/wX5SNH_GZ54?autoplay=1&mute=1&loop=1" 
-                        title="The English Game | Trailer ufficiale | Netflix Italia" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/9.png",
+        embedVideo: "https://www.youtube.com/embed/wX5SNH_GZ54",
+        embedVideoTitle: "The English Game | Trailer ufficiale | Netflix Italia",
         category: "13+",
         content: "Miniserie",
         tags: ["Storici", "Scontri generazionali", "Età vittoriana"],
@@ -110,11 +103,9 @@ const movies = [
     },
     {
         title: "Il Metodo Kominsky",
-        img: `<img src="assets/imgs/movies/10.png" alt="metodo kominsky">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Aj8ua1zQPSs?autoplay=1&mute=1&loop=1" 
-                        title="The Kominsky Method Season 3 | Official Trailer | Netflix" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/10.png",
+        embedVideo: "https://www.youtube.com/embed/Aj8ua1zQPSs",
+        embedVideoTitle: "The Kominsky Method Season 3 | Official Trailer | Netflix",
         category: "13+",
         content: "3 stagioni",
         tags: ["Ammiccante", "Arguto", "Sitcom"],
@@ -122,11 +113,9 @@ const movies = [
     },
     {
         title: "Patto d'amore",
-        img: `<img src="assets/imgs/movies/11.png" alt="patto damore">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/-E0jfSGWqUE?autoplay=1&mute=1&loop=1" 
-                        title="Permission Official Trailer" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/11.png",
+        embedVideo: "https://www.youtube.com/embed/-E0jfSGWqUE",
+        embedVideoTitle: "Permission Official Trailer",
         category: "13+",
         content: "96 min",
         tags: [],
@@ -134,11 +123,9 @@ const movies = [
     },
     {
         title: "La Casa de las Flores",
-        img: `<img src="assets/imgs/movies/12.png" alt="la casa de las flores">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/5iXOQUASjLQ?autoplay=1&mute=1&loop=1" 
-                        title="La Casa de las Flores, La película | Tráiler Oficial | Netflix" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/12.png",
+        embedVideo: "https://www.youtube.com/embed/5iXOQUASjLQ",
+        embedVideoTitle: "La Casa de las Flores, La película | Tráiler Oficial | Netflix",
         category: "13+",
         content: "3 stagioni",
         tags: ["Camp", "Sensuale"],
@@ -146,11 +133,9 @@ const movies = [
     },
     {
         title: "Collateral Beauty",
-        img: `<img src="assets/imgs/movies/13.png" alt="collateral beauty">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/VoOxLh-AGkE?autoplay=1&mute=1&loop=1" 
-                        title="Collateral Beauty - Trailer Italiano Ufficiale | HD" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/13.png",
+        embedVideo: "https://www.youtube.com/embed/VoOxLh-AGkE",
+        embedVideoTitle: "Collateral Beauty - Trailer Italiano Ufficiale | HD",
         category: "13+",
         content: "1h 36min",
         tags: ["Sentimentale", "Emozionante", "Dramma"],
@@ -158,11 +143,9 @@ const movies = [
     },
     {
         title: "Self-Made: La Vita di Madam C.J. Walker",
-        img: `<img src="assets/imgs/movies/14.png" alt="self made">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/bnHy--yxPK4?autoplay=1&mute=1&loop=1" 
-                        title="Self-made: la vita di Madam C.J. Walker | Trailer ufficiale | Netflix Italia" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/14.png",
+        embedVideo: "https://www.youtube.com/embed/bnHy--yxPK4",
+        embedVideoTitle: "Self-made: la vita di Madam C.J. Walker | Trailer ufficiale | Netflix Italia",
         category: "13+",
         content: "Miniserie",
         tags: ["Motivante", "Commovente", "Dramma"],
@@ -170,11 +153,9 @@ const movies = [
     },
     {
         title: "Freud",
-        img: `<img src="assets/imgs/movies/15.png" alt="freud">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/vz9h-Bv36VU?autoplay=1&mute=1&loop=1" 
-                        title="Freud | Trailer ufficiale | Netflix Italia" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/15.png",
+        embedVideo: "https://www.youtube.com/embed/vz9h-Bv36VU",
+        embedVideoTitle: "Freud | Trailer ufficiale | Netflix Italia",
         category: "16+",
         content: "8 episodi",
         tags: ["Psicologico", "Cupo", "Misteri"],
@@ -182,11 +163,9 @@ const movies = [
     },
     {
         title: "Grace and Frankie",
-        img: `<img src="assets/imgs/movies/16.png" alt="grace and frankie">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/8q3dTU182EI?autoplay=1&mute=1&loop=1" 
-                        title="Grace and Frankie - Stagione 1 | Trailer | Netflix Italia" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/16.png",
+        embedVideo: "https://www.youtube.com/embed/8q3dTU182EI",
+        embedVideoTitle: "Grace and Frankie - Stagione 1 | Trailer | Netflix Italia",
         category: "13+",
         content: "7 stagioni",
         tags: ["Arguto", "Bizzarro", "Sitcom"],
@@ -194,11 +173,9 @@ const movies = [
     },
     {
         title: "Lasciati Andare",
-        img: `<img src="assets/imgs/movies/17.png" alt="lasciati andare">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/l7G1iJBUnf0?autoplay=1&mute=1&loop=1" 
-                        title="LASCIATI ANDARE (2017) di Francesco Amato - Trailer ufficiale HD" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/17.png",
+        embedVideo: "https://www.youtube.com/embed/l7G1iJBUnf0",
+        embedVideoTitle: "LASCIATI ANDARE (2017) di Francesco Amato - Trailer ufficiale HD",
         category: "13+",
         content: "99 min",
         tags: [],
@@ -206,11 +183,9 @@ const movies = [
     },
     {
         title: "Dogman",
-        img: `<img src="assets/imgs/movies/18.png" alt="dogman">`,
-        embedVideo: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/eum93mpzpE0?autoplay=1&mute=1&loop=1" 
-                        title="DOGMAN (2018) di Matteo Garrone - Trailer ufficiale HD" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`,
+        img: "assets/imgs/movies/18.png",
+        embedVideo: "https://www.youtube.com/embed/eum93mpzpE0",
+        embedVideoTitle: "DOGMAN (2018) di Matteo Garrone - Trailer ufficiale HD",
         category: "13+",
         content: "102 min",
         tags: [],
@@ -307,7 +282,7 @@ const createSectionSwiper = (section, container) => {
 }
 
 const shuffleArray = (array) => {
-    for (let i = array.length -1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i--) {
         const y = Math.floor(Math.random() * (i + 1));
         [array[i], array[y]] = [array[y], array[i]];
     };
@@ -347,7 +322,7 @@ const sortMovies = (genre) => {
     showSectionsCointainer.classList.add("d-none");
     showGridContainer.classList.remove("d-none");
 
-    showGridContainer.innerHTML = "";
+    showGridContainer.replaceChildren();
 
     if (genre === "All") {
         movies.forEach(movie => {
@@ -375,6 +350,26 @@ const searchMovies = (query) => {
     })
 }
 
+const createImageElement = (show) => {
+    const img = document.createElement("img");
+    img.src = show.img;
+    img.alt = show.title;
+    return img;
+}
+
+const createVideoElement = (show) => {
+    const iframe = document.createElement("iframe");
+    iframe.width = "100%";
+    iframe.height = "100%";
+    iframe.src = `${show.embedVideo}?autoplay=1&mute=1&loop=1`;
+    iframe.title = show.embedVideoTitle;
+    iframe.frameborder = "0";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.allowFullscreen = true;
+    return iframe;
+}
+
 const createCard = (show, container) => {
     const showWrapper = document.createElement("div");
     showWrapper.setAttribute("class", "show-card");
@@ -384,7 +379,7 @@ const createCard = (show, container) => {
 
     const cardImg = document.createElement("div");
     cardImg.setAttribute("class", "card-img-top");
-    cardImg.innerHTML = show.img;
+    cardImg.appendChild(createImageElement(show));
 
     showCard.appendChild(cardImg);
 
@@ -400,23 +395,30 @@ const createCard = (show, container) => {
     let timerID;
     showWrapper.addEventListener("mouseenter", () => {
         timerID = setTimeout(() => {
-            cardImg.innerHTML = show.embedVideo;
+            cardImg.replaceChild(createVideoElement(show), cardImg.firstChild);
         }, 700)
     })
     showWrapper.addEventListener("mouseleave", () => {
         clearTimeout(timerID);
-        cardImg.innerHTML = show.img;
+        cardImg.replaceChild(createImageElement(show), cardImg.firstChild);
     })
-
 }
 
 const createCardBody = (show, container) => {
     const cardButtons = document.createElement("div");
     cardButtons.setAttribute("class", "mb-3 d-flex align-items-center gap-3");
-    cardButtons.innerHTML = `<i class="bi bi-play-circle-fill text-white fs-1"></i>
-                                <i class="bi bi-plus-circle text-white fs-1"></i>
-                                <i class="bi bi-hand-thumbs-up text-white fs-1"></i>`;                  
-    
+
+    const playButton = document.createElement("i");
+    playButton.setAttribute("class", "bi bi-play-circle-fill text-white fs-1");
+
+    const plusButton = document.createElement("i");
+    plusButton.setAttribute("class", "bi bi-plus-circle text-white fs-1");
+
+    const thumbsUpButton = document.createElement("i");
+    thumbsUpButton.setAttribute("class", "bi bi-hand-thumbs-up text-white fs-1");
+
+    cardButtons.append(playButton, plusButton, thumbsUpButton);
+
     const cardData = document.createElement("div");
     cardData.setAttribute("class", "mb-3 d-flex align-items-center gap-3");
 
@@ -500,14 +502,14 @@ searchBarInput.addEventListener("input", () => {
     const results = searchMovies(query);
 
     pageTitle.innerText = `Search > ${query}`;
-    
+
     showCategoriesBtn.classList.remove("active");
     showGridBtn.classList.add("active");
 
     showSectionsCointainer.classList.add("d-none");
     showGridContainer.classList.remove("d-none");
 
-    showGridContainer.innerHTML = "";
+    showGridContainer.replaceChildren();
 
     results.forEach(movie => createCard(movie, showGridContainer))
 })
@@ -525,7 +527,7 @@ showCategoriesBtn.addEventListener("click", () => {
     showSectionsCointainer.classList.remove("d-none");
     showGridContainer.classList.add("d-none");
 
-    showSectionsCointainer.innerHTML = "";
+    showSectionsCointainer.replaceChildren();
 
     sections.forEach(section => {
         createSectionTitle(section, showSectionsCointainer);
@@ -542,14 +544,15 @@ showCategoriesBtn.addEventListener("click", () => {
 
 showGridBtn.addEventListener("click", () => {
     pageTitle.innerText = "TV Shows";
-    
+
     showCategoriesBtn.classList.remove("active");
     showGridBtn.classList.add("active");
 
     showSectionsCointainer.classList.add("d-none");
     showGridContainer.classList.remove("d-none");
 
-    showGridContainer.innerHTML = "";
+    showGridContainer.replaceChildren();
+
     movies.forEach(movie => createCard(movie, showGridContainer));
 })
 
