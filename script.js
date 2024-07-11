@@ -258,6 +258,8 @@ let genresArray = ["All"];
 
 
 // DOM Elements
+const searchContainer = document.querySelector(".search-container");
+const searchBtn = document.getElementById("searchButton");
 const searchBarInput = document.getElementById("searchInput");
 const pageTitle = document.getElementById("page-title");
 const genresList = document.getElementById("genres-dropdown");
@@ -477,10 +479,20 @@ movies.forEach(movie => {
 genresArray.sort().forEach(genre => createGenreButton(genre, genresList))
 
 
-// Create cards
+// Calls
 sections.forEach(section => {
     createSectionTitle(section, showSectionsCointainer);
     createSectionSwiper(section, showSectionsCointainer);
+})
+
+searchBtn.addEventListener("click", () => {
+    searchContainer.classList.toggle("active");
+    if (searchContainer.classList.contains("active")) {
+        searchBarInput.focus();
+        console.log("ciao")
+    } else {
+        searchBarInput.blur();
+    }
 })
 
 searchBarInput.addEventListener("input", () => {
@@ -498,6 +510,10 @@ searchBarInput.addEventListener("input", () => {
     showGridContainer.innerHTML = "";
 
     results.forEach(movie => createCard(movie, showGridContainer))
+})
+
+searchBarInput.addEventListener("blur", () => {
+    searchContainer.classList.remove("active");
 })
 
 showCategoriesBtn.addEventListener("click", () => {
