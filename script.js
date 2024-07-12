@@ -1,11 +1,12 @@
 /*
 INDEX:
-12- Global Variables
-235- DOM Elements
-248- Functions
-472- Compile genre list
-484- Calls
-564- Intersection observer
+13- Global Variables
+236- DOM Elements
+254- Functions
+480- Compile genre list
+492- Calls
+552- Intersection observer
+576 - Hero section
 */
 
 
@@ -243,6 +244,11 @@ const showGridBtn = document.getElementById("show-grid");
 const showSectionsCointainer = document.getElementById("show-sections-container");
 const showGridContainer = document.getElementById("show-grid-container");
 const footerLinksContainer = document.getElementById("footer-links-container");
+const heroSection = document.getElementById("hero");
+const heroImgContainer = document.querySelector(".hero-img-container");
+const heroImg = document.getElementById("hero-image");
+const heroImgOverlay = document.getElementById("hero-overlay");
+const heroTitle = document.getElementById("hero-title");
 
 
 // Functions
@@ -320,6 +326,8 @@ const sortMovies = (genre) => {
     showGridBtn.classList.add("active");
 
     showSectionsCointainer.classList.add("d-none");
+    heroSection.classList.add("d-none");
+    heroImgContainer.classList.add("d-none");
     showGridContainer.classList.remove("d-none");
 
     showGridContainer.replaceChildren();
@@ -507,6 +515,8 @@ searchBarInput.addEventListener("input", () => {
     showGridBtn.classList.add("active");
 
     showSectionsCointainer.classList.add("d-none");
+    heroSection.classList.add("d-none");
+    heroImgContainer.classList.add("d-none");
     showGridContainer.classList.remove("d-none");
 
     showGridContainer.replaceChildren();
@@ -518,30 +528,6 @@ searchBarInput.addEventListener("blur", () => {
     searchContainer.classList.remove("active");
 })
 
-showCategoriesBtn.addEventListener("click", () => {
-    pageTitle.innerText = "TV Shows";
-
-    showCategoriesBtn.classList.add("active");
-    showGridBtn.classList.remove("active");
-
-    showSectionsCointainer.classList.remove("d-none");
-    showGridContainer.classList.add("d-none");
-
-    showSectionsCointainer.replaceChildren();
-
-    sections.forEach(section => {
-        createSectionTitle(section, showSectionsCointainer);
-        createSectionSwiper(section, showSectionsCointainer);
-    })
-
-    swiperInit();
-
-    const elementToTrack = document.querySelectorAll(".scrollable");
-    elementToTrack.forEach(element => {
-        observer.observe(element);
-    })
-})
-
 showGridBtn.addEventListener("click", () => {
     pageTitle.innerText = "TV Shows";
 
@@ -549,6 +535,8 @@ showGridBtn.addEventListener("click", () => {
     showGridBtn.classList.add("active");
 
     showSectionsCointainer.classList.add("d-none");
+    heroSection.classList.add("d-none");
+    heroImgContainer.classList.add("d-none");
     showGridContainer.classList.remove("d-none");
 
     showGridContainer.replaceChildren();
@@ -582,4 +570,33 @@ const observer = new IntersectionObserver(callBack, options)
 
 elementToTrack.forEach(element => {
     observer.observe(element);
+})
+
+
+// HERO SECTION
+const createHero = () => {
+    const show = (shuffleArray(movies))[0];
+    heroImg.src = show.img;
+    heroImg.alt = show.title;
+    heroTitle.innerText = show.title;
+}
+const updateHero = () => {
+    const heroImgHeight = heroImg.clientHeight;
+    heroImgOverlay.style.height = `${heroImgHeight}px`
+    heroSection.style.height = `${heroImgHeight * 0.6}px`;
+}
+
+window.addEventListener("load", () => {
+    createHero()
+    updateHero()
+})
+
+window.addEventListener("resize", () => updateHero())
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+        document.getElementById("heading").classList.add("bg-dark");
+    } else {
+        document.getElementById("heading").classList.remove("bg-dark");
+    }
 })

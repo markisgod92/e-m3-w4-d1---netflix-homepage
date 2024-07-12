@@ -15,14 +15,14 @@
     <title>Epiflix: TV Shows</title>
 </head>
 
-<body class="bg-dark mh-100">
+<body class="mh-100">
     <!--
     M3 W4 D1 - CLONE HOME NETFLIX
     - card al passaggio del mouse si ingradiscono
     - EXTRA: anima le righe perchè appaiano allo scroll
     -->
 
-    <header>
+    <header class="bg-dark">
         <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -40,7 +40,7 @@
                             <a class="nav-link" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">TV Shows</a>
+                            <a class="nav-link active" href="index.html">TV Shows</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">Movies</a>
@@ -125,10 +125,15 @@
         </nav>
     </header>
 
-    <main class="container-fluid">
-        <div class="row mx-5">
+    <main class="container-fluid p-0">
+        <div class="background bg-dark"></div>
+        <div class="hero-img-container">
+            <img src="assets/imgs/movies/1.png" alt="" id="hero-image">
+            <div class="hero-overlay" id="hero-overlay"></div>
+        </div>
+        <div class="row">
             <div class="col-12">
-                <div class="row mt-5">
+                <div class="row pt-5 pb-3 px-5" id="heading">
                     <div class="col-12 col-md-6">
                         <h2 class="text-white" id="page-title">TV Shows</h2>
                     </div>
@@ -141,9 +146,11 @@
                                 <ul class="dropdown-menu bg-dark" id="genres-dropdown"></ul>
                             </div>
                             <div class="d-flex justify-content-end align-items-center">
-                                <button class="btn btn-outline-secondary rounded-0 active" id="show-sections">
-                                    <i class="bi bi-text-left"></i>
-                                </button>
+                                <a href="index.html">
+                                    <button class="btn btn-outline-secondary rounded-0 active" id="show-sections">
+                                            <i class="bi bi-text-left"></i>
+                                    </button>
+                                </a>
                                 <button class="btn btn-outline-secondary rounded-0" id="show-grid">
                                     <i class="bi bi-grid-fill"></i>
                                 </button>
@@ -151,13 +158,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" id="show-sections-container"></div>
-                <div class=" mt-5 d-flex flex-wrap justify-content-center justify-content-md-start align-items-center gap-3 d-none" id="show-grid-container"></div> 
+                <div class="row px-5">
+                    <div class="col-12">
+                        <div id="hero">
+                            <div class="hero-content">
+                                <h4 id="hero-title"></h4>
+                            <div class="hero-buttons d-flex align-items-center gap-4">
+                                <button class="play-button btn text-black fw-bold d-flex align-items-center gap-3">
+                                    <i class="bi bi-play-fill"></i>
+                                    <div>Play</div>
+                                </button>
+                                <button class="info-button btn btn-secondary text-white fw-bold d-flex align-items-center gap-3">
+                                    <i class="bi bi-info-circle"></i>
+                                    <div>More info</div>
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-5 mt-5" id="show-sections-container"></div>
+                <div class="mx-5 mt-5 d-flex flex-wrap justify-content-center justify-content-md-start align-items-center gap-3 d-none" id="show-grid-container"></div> 
             </div>
         </div>
     </main>
 
-    <footer class="mt-5">
+    <footer class=" bg-dark pt-5">
         <div class="container">
             <!--SOCIAL LINKS-->
             <div class="row mb-3">
