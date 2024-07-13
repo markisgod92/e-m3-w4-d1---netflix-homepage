@@ -71,7 +71,6 @@ main {
     height: auto;
     object-fit: cover;
     z-index: -2;
-
 }
 
 .hero-overlay {
